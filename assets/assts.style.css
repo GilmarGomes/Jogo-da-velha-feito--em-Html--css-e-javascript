@@ -1,0 +1,130 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Lucida Sans", sans-serif;
+}
+body {
+  background-color: rgb(228, 226, 223);
+}
+header {
+  padding: 1rem;
+}
+header h1 {
+  font-size: 4rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+.container {
+  position: relative;
+  background-color: rgb(183, 183, 183);
+  width: 40%;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10rem auto;
+  border-radius: 20px;
+  box-shadow: 5px 5px 10px black;
+  overflow: hidden;
+}
+.game {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.content-block {
+  background-color: aliceblue;
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  border-radius: 5px;
+  box-shadow: 0px 5px 5px black;
+}
+#scoreboard {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  margin-top: 28rem;
+  justify-content: center;
+  background-color: rgb(86, 87, 87);
+  color: #fff;
+  width: 100%;
+  text-align: center;
+  padding: 1rem;
+  font-size: 2.5rem;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  animation: fadeIn 1s;
+}
+.winner-animation {
+  position: absolute;
+  height: 100%;
+  background-color: #4caf50; /* cor verde para indicar o vencedor */
+  width: 0;
+  z-index: -1;
+  border-radius: 20px;
+  transition: width 1s ease;
+}
+.winner-X {
+  animation: winnerXAnimation 1s;
+}
+.winner-O {
+  animation: winnerOAnimation 1s;
+}
+@keyframes winnerXAnimation {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+@keyframes winnerOAnimation {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+#restart-btn {
+  position: absolute;
+  display: block;
+  margin: 2rem auto;
+  padding: 0.5rem 2rem;
+  top: 0;
+  font-size: 1rem;
+  background-color: #2196f3;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+#restart-btn:hover {
+  background-color: #0b7dda;
+}
+.winner-animation.winner-X {
+  width: 100%;
+  background-color: #4caf50;
+  animation: winnerXAnimation 1s, fadeIn 1s;
+}
+
+.winner-animation.winner-O {
+  width: 100%;
+  background-color: #4caf50;
+  animation: winnerOAnimation 1s, fadeIn 1s;
+}
